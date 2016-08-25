@@ -1,13 +1,15 @@
 from telegram.ext import Updater, CommandHandler
 from telegram.ext import MessageHandler, Filters
+import logging
 
 # Methods handling commands
 
 def start(bot, update):
-    bot.sendMessage(update.message.chat_id, text='Hello World!')
+    bot.sendMessage(chat_id=update.message.chat_id,
+                    text="I'm a bot, please talk to me!")
 
 def hello(bot, update):
-    bot.sendMessage(update.message.chat_id,
+    bot.sendMessage(chat_id=update.message.chat_id,
                     text='Hello {}'.format(update.message.from_user.first_name))
 
 def echo(bot, update):
@@ -19,6 +21,10 @@ def echo(bot, update):
 echo_handler = MessageHandler([Filters.text], echo)
 
 updater = Updater('269099404:AAFVA72KeKpzg16Nma2TI6HB4tfCJ6S8jA4')
+
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        level=logging.INFO)
 
 # For quicker access to the Dispatcher used by your Updater
 dispatcher = updater.dispatcher

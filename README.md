@@ -31,6 +31,8 @@ Let's get started! In this tutorial we'll use the Python library provided by Tel
 	![/start command](demo/botfather_start.png "/start command")
 	* /hello
 	![/hello command](demo/botfather_hello.png "/hello command")
+	* /help
+	![/help command](demo/botfather_help.png "/help command")
 	* /caps your text
 	![Caps text](demo/botfather_caps.png "Caps text")
 	* Echoes messages

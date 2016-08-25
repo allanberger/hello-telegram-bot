@@ -2,6 +2,13 @@ from telegram.ext import Updater, CommandHandler
 from telegram.ext import MessageHandler, Filters
 import logging
 
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+
+logger = logging.getLogger(__name__)
+
+
 # Methods handling commands
 
 def start(bot, update):
@@ -25,10 +32,6 @@ echo_handler = MessageHandler([Filters.text], echo)
 caps_handler = CommandHandler('caps', caps, pass_args=True)
 
 updater = Updater('269099404:AAFVA72KeKpzg16Nma2TI6HB4tfCJ6S8jA4')
-
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        level=logging.INFO)
 
 # For quicker access to the Dispatcher used by your Updater
 dispatcher = updater.dispatcher

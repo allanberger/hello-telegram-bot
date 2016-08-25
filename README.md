@@ -1,6 +1,6 @@
 # Creating a Telegram Bot
 
-Let's get started!
+Let's get started! In this tutorial we'll use the Python library provided by Telegram called [python-telegram-bot](https://github.com/python-telegram-bot/).
 
 1. Fire up a command line and install the required libraries through your command line by running:
 
@@ -28,47 +28,18 @@ Let's get started!
 
 9. Your Bot supports following things:
 	* /start
+	![/start command](demo/botfather_start.png "/start command")
 	* /hello
-	* Echoes message
+	![/hello command](demo/botfather_hello.png "/hello command")
+	* /caps your text
+	![Caps text](demo/botfather_caps.png "Caps text")
+	* Echoes messages
+	![Echo text](demo/botfather_echo.png "Echo text")
 
 ## Notes
 
 Add `@Hello_Telegram_Bot` and send him a message to test the features in this tutorial.
 
+Get inspired by more [Examples](https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples) with `python-telegram-bot`.
+
 Find more infos and documentation here: [https://github.com/python-telegram-bot/](https://github.com/python-telegram-bot/)
-
-
-```python
-from telegram.ext import Updater, CommandHandler
-from telegram.ext import MessageHandler, Filters
-
-# Methods handling commands
-
-def start(bot, update):
-    bot.sendMessage(update.message.chat_id, text='Hello World!')
-
-def hello(bot, update):
-    bot.sendMessage(update.message.chat_id,
-                    text='Hello {}'.format(update.message.from_user.first_name))
-
-def echo(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
-
-
-# Helpers
-
-echo_handler = MessageHandler([Filters.text], echo)
-
-updater = Updater('YOUR TOKEN HERE')
-
-# For quicker access to the Dispatcher used by your Updater
-dispatcher = updater.dispatcher
-
-# Register the methods handling commands
-dispatcher.add_handler(CommandHandler('start', start))
-dispatcher.add_handler(CommandHandler('hello', hello))
-dispatcher.add_handler(echo_handler)
-
-updater.start_polling()
-updater.idle()
-```

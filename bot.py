@@ -15,10 +15,14 @@ def hello(bot, update):
 def echo(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text=update.message.text)
 
+def caps(bot, update, args):
+    text_caps = ' '.join(args).upper()
+    bot.sendMessage(chat_id=update.message.chat_id, text=text_caps)
 
 # Helpers
 
 echo_handler = MessageHandler([Filters.text], echo)
+caps_handler = CommandHandler('caps', caps, pass_args=True)
 
 updater = Updater('269099404:AAFVA72KeKpzg16Nma2TI6HB4tfCJ6S8jA4')
 
@@ -33,6 +37,7 @@ dispatcher = updater.dispatcher
 dispatcher.add_handler(CommandHandler('start', start))
 dispatcher.add_handler(CommandHandler('hello', hello))
 dispatcher.add_handler(echo_handler)
+dispatcher.add_handler(caps_handler)
 
 updater.start_polling()
 updater.idle()

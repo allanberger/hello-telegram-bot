@@ -26,9 +26,16 @@ Let's get started!
 
 8. Then import `telegram.py` via `import telegram` at the top of your `main.py`
 
+9. Your Bot supports following things:
+	* /start
+	* /hello
+	* Echoes message
+
 ## Notes
 
 Add `@Hello_Telegram_Bot` and send him a message to test the features in this tutorial.
+
+Find more infos and documentation here: [https://github.com/python-telegram-bot/](https://github.com/python-telegram-bot/)
 
 
 ```python
